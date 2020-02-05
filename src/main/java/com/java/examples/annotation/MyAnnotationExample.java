@@ -24,13 +24,13 @@ public class MyAnnotationExample {
                 MyAnnotation annotation = method.getAnnotation(MyAnnotation.class);
                 if(annotation.priority().equals(MyAnnotation.Priority.HIGH) &&
                     annotation.key().name().equals("greetMe")){
-                    System.out.println(annotation.key().value());
+                    System.out.println("Running Java method annotations with custom key value:: " +annotation.key().value());
                 }
                 else if(annotation.priority().equals(MyAnnotation.Priority.MEDIUM) &&
                         annotation.key().name().equals("greetMe")){
-                    System.out.println(annotation.key().value());
+                    System.out.println("Running Java method annotations with default key value:: " +annotation.key().value());
                 }
-                else System.out.println("Hello....");
+                else System.out.println("Running with no annotations: Hello....");
             }
         }
     }
