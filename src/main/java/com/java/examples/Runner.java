@@ -1,9 +1,7 @@
 package com.java.examples;
 
 import com.java.examples.annotation.MyAnnotationExample;
-import com.java.examples.lambda.MyLambdaGreeter;
-import com.java.examples.lambda.PersonLambdaComparator;
-import com.java.examples.lambda.ThreadExampleWithLambda;
+import com.java.examples.lambda.*;
 
 import java.io.IOException;
 import java.util.*;
@@ -37,10 +35,22 @@ public class Runner {
             case 'b':
                 System.out.println("Lambda Greeter:");
                 MyLambdaGreeter.main(args);
+                System.out.println("*************************");
                 System.out.println("Lambda Thread Runnable:");
+                System.out.println("*************************");
                 ThreadExampleWithLambda.main(args);
+                System.out.println("*******************");
                 System.out.println("Lambda Comparator:");
+                System.out.println("*******************");
                 PersonLambdaComparator.main(args);
+                System.out.println("**********************************************");
+                System.out.println("Lambda Comparator With Predicate And Consumer");
+                System.out.println("**********************************************");
+                LambdaComparatorWithPredicateAndConsumer.main(args);
+                System.out.println("*************************");
+                System.out.println("Lambda Streams Example");
+                System.out.println("*************************");
+                LambdaStreamsExample.main(args);
                 break;
                 default:
                     System.out.println("Invalid choice...");

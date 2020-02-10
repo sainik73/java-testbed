@@ -52,6 +52,6 @@ public class Person {
 
     @Override
     public String toString() {
-        return getLastName().concat(",").concat(getFirstName());
+        return getFirstName().concat(",").concat(getLastName());
     }
 }

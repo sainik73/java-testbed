@@ -59,9 +59,11 @@ public class PersonLambdaComparator {
             }
         }
     }
+
+    @FunctionalInterface
+    static
+    interface Condition{
+        boolean test(Person p);
+    }
 }
 
-@FunctionalInterface
-interface Condition{
-    boolean test(Person p);
-}
