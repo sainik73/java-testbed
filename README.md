@@ -1,6 +1,6 @@
-# Welcome to JavaTest
+# Welcome to JavaTests
 
-This is Java test project with examples on many java features.
+This is Java 8 test project with examples on many java features.
 
 Running the tests
 -----------------
@@ -19,3 +19,7 @@ mvn clean install -Pdist
 Run the test:
 
 `java -jar target/javatest.jar`
+
+Select the test to run:
+a) Java Annotation
+b) Java Lambda
