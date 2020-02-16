@@ -26,5 +26,8 @@ public class LambdaStreamsExample {
                 .sorted((p1, t1) -> p1.getFirstName().compareTo(t1.getFirstName()))
                 .forEach(System.out::println);
 
+
+
+
     }
 }
