@@ -7,8 +7,8 @@ import java.util.logging.Logger;
 import static com.java.examples.datastructure.Node.nodeExists;
 import static com.java.examples.datastructure.Node.printBinaryTree;
 
-public class BinaryTreeSearch {
-    private static Logger logger = Logger.getLogger(BinaryTreeSearch.class.getName());
+public class BinaryTree {
+    private static Logger logger = Logger.getLogger(BinaryTree.class.getName());
 
     public static void main(String[] args)throws Exception {
         // create binary tree with new nodes

@@ -1,7 +1,7 @@
 package com.java.examples;
 
 import com.java.examples.annotation.MyAnnotationExample;
-import com.java.examples.datastructure.BinaryTreeSearch;
+import com.java.examples.datastructure.BinaryTree;
 import com.java.examples.lambda.*;
 
 import java.io.IOException;
@@ -55,7 +55,7 @@ public class Runner {
                 LambdaStreamsExample.main(args);
                 break;
             case 'c':
-                BinaryTreeSearch.main(args);
+                BinaryTree.main(args);
                 break;
 
                 default:
