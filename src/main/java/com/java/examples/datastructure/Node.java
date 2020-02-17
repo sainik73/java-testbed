@@ -4,6 +4,8 @@ import java.util.logging.Logger;
 
 /**
  * This class represents a Node in a binary tree.
+ * @version 1.0 Initial version
+ *
  */
 public class Node {
     private static Logger logger = Logger.getLogger(Node.class.getName());
@@ -51,26 +53,22 @@ public class Node {
     public Node findNode(int valueToFind) throws Exception {
         Node finderNode = null;
         //find the traversal side - left or right
-        if(valueToFind < this.value){
-            if(nodeExists(this.left)){
-                if(this.left.value == valueToFind) {
-                    finderNode = this.left;
-                }else {
-                    finderNode = this.left.findNode(valueToFind);
-                }
+        if(valueToFind == value){
+            finderNode= this;
+        //traverse left
+        }else if(nodeExists(left)){
+            if(left.value == valueToFind) {
+                finderNode = left;
+            }else {
+                finderNode = left.findNode(valueToFind);
             }
         //traverse right
-        }else if(valueToFind > this.value){
-            if(nodeExists(this.right)) {
-                if (this.right.value == valueToFind) {
-                    finderNode = this.right;
-                } else {
-                    finderNode = this.right.findNode(valueToFind);
-                }
+        }else if(nodeExists(right)){
+            if (right.value == valueToFind) {
+                finderNode = right;
+            } else {
+                finderNode = right.findNode(valueToFind);
             }
-
-        }else if(valueToFind == this.value){
-            finderNode= this;
         }
         //else throw new Exception("Node not found in the binary tree search!!");
 
@@ -84,9 +82,9 @@ public class Node {
      * @return boolean
      */
     public static boolean nodeExists(Node node){
-        boolean exist = false;
-        if(null!= node){
-            exist = true;
+        boolean exist = true;
+        if(null == node){
+            exist = false;
         }
         return exist;
     }

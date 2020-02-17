@@ -37,7 +37,7 @@ public class BinaryTreeSearch {
         long startTime = System.nanoTime();
         Node foundNode = starterNode.findNode(valueToSetAndFind);
         long stopTime = System.nanoTime();
-        logger.info("Time taken to find Node with Value " + valueToSetAndFind + " :: "+ (stopTime-startTime) +" ms");
+        logger.info("Time taken to find Node with Value " + valueToSetAndFind + " :: "+ (stopTime-startTime) +" nanoseconds. ");
 
         //find non existent node
         int valueToFind = 52;
