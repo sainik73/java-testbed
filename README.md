@@ -23,3 +23,4 @@ Run the test:
 Select the test to run:
 a) Java Annotation
 b) Java Lambda
+c) DataStructures - Binary Search
