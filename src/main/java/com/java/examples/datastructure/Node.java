@@ -13,6 +13,9 @@ public class Node {
     private Node left = null;
     private Node right = null;
 
+    //default constructor
+    public Node(){ }
+
     public Node(int value){
         this.value = value;
     }
