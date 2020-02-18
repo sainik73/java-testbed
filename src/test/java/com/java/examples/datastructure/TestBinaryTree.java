@@ -49,6 +49,41 @@ public class TestBinaryTree {
         assertFalse(nodeExists(bt.findNode(1)));
     }
 
+    @Test
+    public void givenABinaryTree_WhenStarterNodeIsRequestedToDelete_ThenTreeDoesnotDeleteThatNode() throws Exception {
+        logger.log(Level.INFO, ()-> "givenABinaryTree_WhenStarterNodeIsRequestedToDelete_ThenTreeDoesnotDeleteThatNode");
+        bt.setStarterNode(new Node(10));
+        bt.addNode(6);
+        bt.addNode(15);
+        bt.addNode(4);
+
+        assertFalse(bt.deleteNode(10));
+    }
+
+    @Test
+    public void givenABinaryTree_WhenLastChildNodeIsRequestedToDelete_ThenTreeDeletesThatNode() throws Exception {
+        logger.log(Level.INFO, ()-> "givenABinaryTree_WhenLastChildNodeIsRequestedToDelete_ThenTreeDeletesThatNode");
+        bt.setStarterNode(new Node(10));
+        bt.addNode(6);
+        bt.addNode(15);
+        bt.addNode(4);
+
+        assertTrue(bt.deleteNode(4));
+    }
+
+    @Test
+    public void givenABinaryTree_WhenNodeWithOneChildIsRequestedToDelete_ThenTreeDeletesThatNode() throws Exception {
+        logger.log(Level.INFO, ()-> "givenABinaryTree_WhenLastChildNodeIsRequestedToDelete_ThenTreeDeletesThatNode");
+        bt.setStarterNode(new Node(10));
+        bt.addNode(6);
+        bt.addNode(15);
+        bt.addNode(4);
+        bt.addNode(18);
+
+        assertTrue(bt.deleteNode(6));
+        assertTrue(bt.deleteNode(15));
+    }
+
     @AfterEach
     void tearThis(){
         bt = null;

@@ -107,6 +107,58 @@ public class Node {
 
     }
 
+    /**
+     * This method will delete the node by traversing
+     * through the binary tree
+     * @param valueToDelete
+     */
+    public boolean deleteNode(int valueToDelete) {
+        return deleteNode(valueToDelete,  null);
+    }
+
+    private boolean deleteNode(int valueToDelete, Node parentNode) {
+        boolean nodeDeleted = false;
+        //Don't delete the starter node
+        if(!nodeExists(parentNode) && valueToDelete == value){
+            return nodeDeleted;
+        }
+        else if(valueToDelete == value) {
+            // Step1:- if no child nodes exists
+            if (!(nodeExists(left) && nodeExists(right))) {
+                //Delete Node & Rearrange the BinaryTree
+                parentNode.setLeft(null);
+                parentNode.setRight(null);
+
+                nodeDeleted = true;
+            }// Step2:- if only 1 child node exists
+            else if((nodeExists(left) || nodeExists(right) && (valueToDelete == value))){
+                // Delete Node & Rearrange the BinaryTree
+                if(parentNode.left.value == valueToDelete){
+                    //set current node's child (left or right) that exists to left side of parent
+                    parentNode.setLeft((nodeExists(left)?left: right));
+                }else {
+                    //set current node's child (left or right) that exists to right side of parent
+                    parentNode.setRight((nodeExists(right)?right: left));
+                }
+                nodeDeleted = true;
+            }
+            //ToDo:- handle deletion if both child exists
+
+        }//end if(valueToDelete == value)
+        else if(valueToDelete < value){
+            if(nodeExists(left)) {
+                nodeDeleted = left.deleteNode(valueToDelete, left);
+            }
+        }
+        else{
+            if(nodeExists(right)) {
+                nodeDeleted = right.deleteNode(valueToDelete, right);
+            }
+        }
+
+        return nodeDeleted;
+    }
+
     @Override
     public String toString() {
         return super.toString();

@@ -1,7 +1,6 @@
 package com.java.examples.datastructure;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.logging.Logger;
 
 import static com.java.examples.datastructure.Node.nodeExists;
@@ -12,20 +11,25 @@ public class BinaryTree {
     private Node starterNode = null;
 
     public BinaryTree(){
-        starterNode = new Node();
+        setStarterNode(new Node());
     }
 
     public BinaryTree(int value){
-        starterNode = new Node(value);
+        setStarterNode(new Node(value));
     }
 
     public void addNode(int value){
-        starterNode.addNode(value);
+        getStarterNode().addNode(value);
     }
 
     public Node findNode(int value)throws Exception{
-        return starterNode.findNode(value);
+        return getStarterNode().findNode(value);
     }
+
+    public boolean deleteNode(int valueToDelete){
+        return getStarterNode().deleteNode(valueToDelete);
+    }
+
 
     public void createBinaryTreeWithNodes(int sizeOfArray){
         // create binary tree with new nodes
@@ -37,18 +41,23 @@ public class BinaryTree {
         // distinct array
         int[] nodesArray = Arrays.stream(nodesRawArray).distinct().toArray();
         //create binary tree with starter node at half of array size.
-        starterNode = new Node(sizeOfArray/2);
+        setStarterNode(new Node(sizeOfArray/2));
         for (int value:nodesArray ) {
-            starterNode.addNode(value);
+            getStarterNode().addNode(value);
         }
     }
 
+    /**
+     * Main method
+     * @param args
+     * @throws Exception
+     */
     public static void main(String[] args)throws Exception {
         int sizeOfArray = 100;
         BinaryTree bt = new BinaryTree();
         bt.createBinaryTreeWithNodes(sizeOfArray);
         //Print the binary array with the levels
-        printBinaryTree(bt.starterNode,"root",0);
+        printBinaryTree(bt.getStarterNode(),"root",0);
 
         //set the node value randomly
         int valueToSetAndFind = (int)(Math.random()*sizeOfArray);
@@ -66,5 +75,13 @@ public class BinaryTree {
         System.out.println("Found Node with value " + valueToFind + " :: "+ nodeExists(nnode));
 
 
+    }
+
+    public Node getStarterNode() {
+        return starterNode;
+    }
+
+    public void setStarterNode(Node starterNode) {
+        this.starterNode = starterNode;
     }
 }
