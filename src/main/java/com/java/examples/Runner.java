@@ -1,19 +1,21 @@
 package com.java.examples;
 
 import com.java.examples.annotation.MyAnnotationExample;
+import com.java.examples.datastructure.BinaryTree;
 import com.java.examples.lambda.*;
 
 import java.io.IOException;
 import java.util.*;
 
 public class Runner {
-    public static void main(final String[] args) {
+    public static void main(final String[] args) throws Exception{
 
         final List<String> names = new ArrayList<String>();
         names.add("Java Annotation");
         names.add ("Java Lambda");
+        names.add ("DataStructures - Binary Search");
 
-        Collections.sort(names);
+        //Collections.sort(names);
         System.out.println("Welcome to the Java Tests");
         System.out.println("Please select a test:");
 
@@ -52,6 +54,10 @@ public class Runner {
                 System.out.println("*************************");
                 LambdaStreamsExample.main(args);
                 break;
+            case 'c':
+                BinaryTree.main(args);
+                break;
+
                 default:
                     System.out.println("Invalid choice...");
         }
