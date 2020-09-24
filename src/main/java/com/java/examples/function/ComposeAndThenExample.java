@@ -7,15 +7,14 @@ import java.util.logging.Logger;
 
 //@see java.util.function.Function Interface
 public class ComposeAndThenExample {
-    private static Logger logger = Logger.getLogger(ComposeAndThenExample.class.getName());
+    private static final Logger logger = Logger.getLogger(ComposeAndThenExample.class.getName());
+    private static final String SPACER = "------------------------------------";
 
     public static void main(String[] args) {
         Function<Integer, Integer> add = v -> v + 3;
         Function<Integer, Integer> multiply = v -> v * 2;
 
         Function<Integer, String> addAndReturnStringOutput = v -> ("Output is " +v + 3);
-
-        String SPACER = "------------------------------------";
 
         // AndThen applies function first, then applies parameters
         Function<Integer, Integer> multiplyThenAdd = multiply.andThen(add);
