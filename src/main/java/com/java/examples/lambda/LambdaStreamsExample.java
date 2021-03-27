@@ -27,7 +27,5 @@ public class LambdaStreamsExample {
                 .forEach(System.out::println);
 
 
-
-
     }
 }

@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -58,7 +59,7 @@ public class TestCustomJavaList {
         cjl.add(124);
         cjl.add(237);
         cjl.printList();
-        assertEquals(cjl.getCapacity(),20);
+        assertEquals(cjl.getCapacity(), 20);
     }
 
     @Test

@@ -15,7 +15,7 @@ public class ThreadExampleWithLambda {
 
         myNormalThread.run();
 
-        Thread myLambdaThread = new Thread(()-> System.out.println("Java 8: Running thread with lambda expression"));
+        Thread myLambdaThread = new Thread(() -> System.out.println("Java 8: Running thread with lambda expression"));
         myLambdaThread.run();
     }
 }
