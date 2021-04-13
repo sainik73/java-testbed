@@ -31,6 +31,9 @@ Run the test:
 `java -jar target/javatest.jar`
 
 Select the test to run:
+
 a) Java Annotation
+
 b) Java Lambda
+
 c) DataStructures
