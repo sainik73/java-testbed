@@ -3,6 +3,7 @@ package com.java.examples.lambda;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class PersonLambdaComparator {
     public static void main(String[] args) {
@@ -45,6 +46,12 @@ public class PersonLambdaComparator {
                 return p.getLastName().startsWith("S");
             }
         }); */
+
+        //print all persons less than 40
+        System.out.println("Print all persons less than 40: ");
+        Predicate<Person> predicate = o -> o.getAge() < 40;
+        people.stream().filter(predicate).forEach(System.out::println);
+
     }
 
     /**
