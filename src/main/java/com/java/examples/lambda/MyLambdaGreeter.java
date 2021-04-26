@@ -7,7 +7,7 @@ public class MyLambdaGreeter {
 
     public static void main(String[] args) {
         System.out.println("Greeting using lambda expressions:");
-        Greeter greeter = (String s)-> "Hello ... greetings from " + s;
+        Greeter greeter = (String s) -> "Hello ... greetings from " + s;
         System.out.println(greeter.greet("lambda"));
     }
 }

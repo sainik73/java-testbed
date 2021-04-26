@@ -13,20 +13,21 @@ public class TestBinaryTree {
     private static Logger logger = Logger.getLogger(TestBinaryTree.class.getName());
 
     BinaryTree bt;
+
     @BeforeAll
-    static void setup(){
-        logger.log(Level.INFO, ()-> "@BeforeAll executed");
+    static void setup() {
+        logger.log(Level.INFO, () -> "@BeforeAll executed");
     }
 
     @BeforeEach
-    void setupThis(){
+    void setupThis() {
         bt = new BinaryTree();
-        logger.log(Level.INFO, ()-> "@BeforeEach executed");
+        logger.log(Level.INFO, () -> "@BeforeEach executed");
     }
 
     @Test
     public void givenABinaryTree_WhenAddingNodes_ThenTreeContainsThoseNodes() throws Exception {
-        logger.log(Level.INFO, ()-> "givenABinaryTree_WhenAddingNodes_ThenTreeContainsThoseNodes");
+        logger.log(Level.INFO, () -> "givenABinaryTree_WhenAddingNodes_ThenTreeContainsThoseNodes");
         bt.addNode(10);
         bt.addNode(6);
         bt.addNode(15);
@@ -40,7 +41,7 @@ public class TestBinaryTree {
 
     @Test
     public void givenABinaryTree_WhenNodeIsNotAdded_ThenTreeDoesnotContainsThoseNodes() throws Exception {
-        logger.log(Level.INFO, ()-> "givenABinaryTree_WhenNodeIsNotAdded_ThenTreeDoesnotContainsThoseNodes");
+        logger.log(Level.INFO, () -> "givenABinaryTree_WhenNodeIsNotAdded_ThenTreeDoesnotContainsThoseNodes");
         bt.addNode(10);
         bt.addNode(6);
         bt.addNode(15);
@@ -51,7 +52,7 @@ public class TestBinaryTree {
 
     @Test
     public void givenABinaryTree_WhenStarterNodeIsRequestedToDelete_ThenTreeDoesnotDeleteThatNode() throws Exception {
-        logger.log(Level.INFO, ()-> "givenABinaryTree_WhenStarterNodeIsRequestedToDelete_ThenTreeDoesnotDeleteThatNode");
+        logger.log(Level.INFO, () -> "givenABinaryTree_WhenStarterNodeIsRequestedToDelete_ThenTreeDoesnotDeleteThatNode");
         bt.setStarterNode(new Node(10));
         bt.addNode(6);
         bt.addNode(15);
@@ -62,7 +63,7 @@ public class TestBinaryTree {
 
     @Test
     public void givenABinaryTree_WhenLastChildNodeIsRequestedToDelete_ThenTreeDeletesThatNode() throws Exception {
-        logger.log(Level.INFO, ()-> "givenABinaryTree_WhenLastChildNodeIsRequestedToDelete_ThenTreeDeletesThatNode");
+        logger.log(Level.INFO, () -> "givenABinaryTree_WhenLastChildNodeIsRequestedToDelete_ThenTreeDeletesThatNode");
         bt.setStarterNode(new Node(10));
         bt.addNode(6);
         bt.addNode(15);
@@ -73,7 +74,7 @@ public class TestBinaryTree {
 
     @Test
     public void givenABinaryTree_WhenNodeWithOneChildIsRequestedToDelete_ThenTreeDeletesThatNode() throws Exception {
-        logger.log(Level.INFO, ()-> "givenABinaryTree_WhenLastChildNodeIsRequestedToDelete_ThenTreeDeletesThatNode");
+        logger.log(Level.INFO, () -> "givenABinaryTree_WhenLastChildNodeIsRequestedToDelete_ThenTreeDeletesThatNode");
         bt.setStarterNode(new Node(10));
         bt.addNode(6);
         bt.addNode(15);
@@ -85,14 +86,14 @@ public class TestBinaryTree {
     }
 
     @AfterEach
-    void tearThis(){
+    void tearThis() {
         bt = null;
-        logger.log(Level.INFO, ()-> "@AfterEach executed");
+        logger.log(Level.INFO, () -> "@AfterEach executed");
     }
 
     @AfterAll
-    static void tear(){
-        logger.log(Level.INFO, ()-> "@AfterAll executed");
+    static void tear() {
+        logger.log(Level.INFO, () -> "@AfterAll executed");
     }
 
 }

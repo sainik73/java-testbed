@@ -41,16 +41,16 @@ public class MethodReferenceLambdaExample {
      * @param predicate This defines the condition to evaluate
      * @param consumer This defines the behavior to implement
      */
-    public static void printConditionally(List<Person> people, java.util.function.Predicate<Person> predicate, Consumer<Person> consumer){
-        for(Person p: people){
-            if(predicate.test(p)){
+    public static void printConditionally(List<Person> people, java.util.function.Predicate<Person> predicate, Consumer<Person> consumer) {
+        for (Person p : people) {
+            if (predicate.test(p)) {
                 //System.out.println(p.toString());
                 consumer.accept(p);
             }
         }
     }
 
-    public static void printFirstName(Person p){
-        System.out.print(p.getFirstName()+ ",");
+    public static void printFirstName(Person p) {
+        System.out.print(p.getFirstName() + ",");
     }
 }

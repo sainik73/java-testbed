@@ -2,18 +2,20 @@ package com.java.examples;
 
 import com.java.examples.annotation.MyAnnotationExample;
 import com.java.examples.datastructure.BinaryTree;
+import com.java.examples.datastructure.BubbleSort;
+import com.java.examples.datastructure.DepthFirstSearch;
 import com.java.examples.lambda.*;
 
 import java.io.IOException;
 import java.util.*;
 
 public class Runner {
-    public static void main(final String[] args) throws Exception{
+    public static void main(final String[] args) throws Exception {
 
         final List<String> names = new ArrayList<String>();
         names.add("Java Annotation");
-        names.add ("Java Lambda");
-        names.add ("DataStructures - Binary Search");
+        names.add("Java Lambda");
+        names.add("DataStructures - Binary Search");
 
         //Collections.sort(names);
         System.out.println("Welcome to the Java Tests");
@@ -55,11 +57,22 @@ public class Runner {
                 LambdaStreamsExample.main(args);
                 break;
             case 'c':
+                System.out.println("*******************");
+                System.out.println("Binary Tree:");
+                System.out.println("*******************");
                 BinaryTree.main(args);
+                System.out.println("*******************");
+                System.out.println("Depth First Search:");
+                System.out.println("*******************");
+                DepthFirstSearch.main(args);
+                System.out.println("*******************");
+                System.out.println("Bubble Sort:");
+                System.out.println("*******************");
+                BubbleSort.main(args);
                 break;
 
-                default:
-                    System.out.println("Invalid choice...");
+            default:
+                System.out.println("Invalid choice...");
         }
     }
 }

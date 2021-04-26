@@ -3,13 +3,14 @@ package com.java.examples.lambda;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class PersonLambdaComparator {
     public static void main(String[] args) {
-        List<Person> people= Arrays.asList(
-                new Person("Charles","Dickins", 60),
+        List<Person> people = Arrays.asList(
+                new Person("Charles", "Dickins", 60),
                 new Person("Adam", "Sandars", 35),
-                new Person("Shawn","McDowell", 31),
+                new Person("Shawn", "McDowell", 31),
                 new Person("Thomas", "Carolle", 45),
                 new Person("Carlie", "Smith", 27),
                 new Person("Roger", "Bains", 61)
@@ -17,7 +18,7 @@ public class PersonLambdaComparator {
 
         //Step 1: Sort the list by last name
         System.out.println("Sort the list by last name::");
-        Collections.sort(people, (p1,p2) -> p1.getLastName().compareTo(p2.getLastName()) );
+        Collections.sort(people, (p1, p2) -> p1.getLastName().compareTo(p2.getLastName()));
         System.out.println(people);
 
         //Step 2: print all elements in the list
@@ -45,16 +46,23 @@ public class PersonLambdaComparator {
                 return p.getLastName().startsWith("S");
             }
         }); */
+
+        //print all persons less than 40
+        System.out.println("Print all persons less than 40: ");
+        Predicate<Person> predicate = o -> o.getAge() < 40;
+        people.stream().filter(predicate).forEach(System.out::println);
+
     }
 
     /**
      * This method prints the list elements based on the conditional evaluation
+     *
      * @param people
      * @param condition
      */
-    public static void printConditionally(List<Person> people, Condition condition){
-        for(Person p: people){
-            if(condition.test(p)){
+    public static void printConditionally(List<Person> people, Condition condition) {
+        for (Person p : people) {
+            if (condition.test(p)) {
                 System.out.println(p.toString());
             }
         }
@@ -62,7 +70,7 @@ public class PersonLambdaComparator {
 
     @FunctionalInterface
     static
-    interface Condition{
+    interface Condition {
         boolean test(Person p);
     }
 }

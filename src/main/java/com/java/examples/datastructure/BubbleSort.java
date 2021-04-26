@@ -8,20 +8,20 @@ import java.util.logging.Logger;
  * This class will arrange the array into ascending order
  * Input  : 1 1 2 0 0 3 1
  * Output : 0 0 1 1 1 2 3
- * @author sainik73
  *
+ * @author sainik73
  */
-public class SortAlgo {
-    private static Logger logger = Logger.getLogger(SortAlgo.class.getName());
+public class BubbleSort {
+    private static Logger logger = Logger.getLogger(BubbleSort.class.getName());
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
 
-        /** BUBBLE SORT **/
+        /* BUBBLE SORT */
         int sizeOfArray = 10000;
         int[] tleArray = new int[sizeOfArray];//{34,9,2,65,23,87,54,33,56,55,76,3,35,65,83,26,11,46,38,99,22,41,40,99,88,44,55,83,45,60,73,35,67,89};
         Random rand = new Random();
-        for (int iCounter=0; iCounter< tleArray.length;iCounter++ ) {
-            tleArray[iCounter]= rand.nextInt(sizeOfArray); //(int)(Math.random()*sizeOfArray);
+        for (int iCounter = 0; iCounter < tleArray.length; iCounter++) {
+            tleArray[iCounter] = rand.nextInt(sizeOfArray); //(int)(Math.random()*sizeOfArray);
         }
 
 
@@ -40,11 +40,10 @@ public class SortAlgo {
         int[] arr3 = Arrays.copyOf(tleArray, tleArray.length);
         long startTimeNew = System.currentTimeMillis();
         //quickSort(arr3);
-        quickSort(arr3, 0, arr3.length-1);
+        quickSort(arr3, 0, arr3.length - 1);
         long endTimeNew = System.currentTimeMillis();
-        logger.info(" Took " + (endTimeNew- startTimeNew) + " ms  to do quick Sort - Array with length: " + arr3.length);
+        logger.info(" Took " + (endTimeNew - startTimeNew) + " ms  to do quick Sort - Array with length: " + arr3.length);
         logger.info("TLE Ascending using Java Quick Sort:: " + printArray(arr3));
-
 
 
     }
@@ -54,45 +53,40 @@ public class SortAlgo {
      * Method implementing the bubble sort algorithm
      * Simplest Algo but works for small dataset which is already sorted and out of sort is very less elements. Not efficient for large datasets.
      */
-    private static void bubbleSort(int arr[])
-    {
+    private static void bubbleSort(int arr[]) {
         long startTime = System.currentTimeMillis();
-        int loopCounter=0;
+        int loopCounter = 0;
         int n = arr.length;
-        for (int i = 0; i < n-1; i++) {
-            for (int j = 0; j < n-i-1; j++){
-                if (arr[j] > arr[j+1])
-                {
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
                     // swap arr[j+1] and arr[i]
                     int temp = arr[j];
-                    arr[j] = arr[j+1];
-                    arr[j+1] = temp;
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
                 }
             }
-            loopCounter=i;
+            loopCounter = i;
         }
         long endTime = System.currentTimeMillis();
-        logger.info(" Took " + (endTime- startTime) + " ms with " + loopCounter + " Loops to bubble Sort Array with length: " + n);
-        logger.info(()->"TLE Ascending using Java Custom sort - bubbleSort:: " + printArray(arr));
+        logger.info(" Took " + (endTime - startTime) + " ms with " + loopCounter + " Loops to bubble Sort Array with length: " + n);
+        logger.info(() -> "TLE Ascending using Java Custom sort - bubbleSort:: " + printArray(arr));
     }
 
     /***** Modified Method implementing the bubble sort algorithm *****/
-    private static int[] bubbleSort1(int[] tleArray){
+    private static int[] bubbleSort1(int[] tleArray) {
         int n = tleArray.length;
         //logger.info("length::" + length);
-        int loopCounter=0;
+        int loopCounter = 0;
         long startTime = System.currentTimeMillis();
         // An optimized version of Bubble Sort
         int i, j, temp;
         boolean swapped;
-        for (i = 0; i < n - 1; i++)
-        {
+        for (i = 0; i < n - 1; i++) {
             loopCounter++;
             swapped = false;
-            for (j = 0; j < n - i - 1; j++)
-            {
-                if (tleArray[j] > tleArray[j + 1])
-                {
+            for (j = 0; j < n - i - 1; j++) {
+                if (tleArray[j] > tleArray[j + 1]) {
                     // swap arr[j] and arr[j+1]
                     temp = tleArray[j];
                     tleArray[j] = tleArray[j + 1];
@@ -103,12 +97,12 @@ public class SortAlgo {
 
             // IF no two elements were
             // swapped by inner loop, then break
-            if (swapped == false)
+            if (!swapped)
                 break;
         }
 
         long endTime = System.currentTimeMillis();
-        logger.info(" Took " + (endTime- startTime) + " ms with " + loopCounter + " Loops to bubble Sort Array with length: " + n);
+        logger.info(" Took " + (endTime - startTime) + " ms with " + loopCounter + " Loops to bubble Sort Array with length: " + n);
         logger.info("TLE Ascending using Java Custom Sort- bubbleSort1:: " + printArray(tleArray));
         return tleArray;
     }
@@ -119,30 +113,30 @@ public class SortAlgo {
      * (considering ascending order) from unsorted part and putting it at the beginning.
      * Time Complexity: O(n^2)
      */
-    private static void selectionSort(int[] tleArray){
+    private static void selectionSort(int[] tleArray) {
         long startTime = System.currentTimeMillis();
         int temp = 0;
         int index = 0;
         int length = tleArray.length;
         int loopCounter = 0;
-        for (int i=0;i<length-1;i++){
+        for (int i = 0; i < length - 1; i++) {
             temp = tleArray[i];
             loopCounter++;
-            for (int j=i+1;j<length;j++){
-                if( temp> tleArray[j]){
+            for (int j = i + 1; j < length; j++) {
+                if (temp > tleArray[j]) {
                     temp = tleArray[j];
                     index = j;
                 }
             }
             //swap the lowest number
-            if(index !=0){
+            if (index != 0) {
                 tleArray[index] = tleArray[i];
                 tleArray[i] = temp;
                 index = 0;//reset
             }
         }
         long endTime = System.currentTimeMillis();
-        logger.info(" Took " + (endTime- startTime) + " ms  with " + loopCounter + " loops to do selection Sort - Array with length: " + length);
+        logger.info(" Took " + (endTime - startTime) + " ms  with " + loopCounter + " loops to do selection Sort - Array with length: " + length);
         logger.info("TLE Ascending using Java Custom Sort - selectionSort:: " + printArray(tleArray));
     }
 
@@ -150,29 +144,29 @@ public class SortAlgo {
      * Quick Sort
      * This is the fastest algo
      */
-    private static void quickSort(int[] tleArray){
+    private static void quickSort(int[] tleArray) {
         long startTime = System.currentTimeMillis();
         int length = tleArray.length;
-        int pivot = tleArray[length-1];
+        int pivot = tleArray[length - 1];
         logger.info(() -> "Pivot: " + pivot);
         //int pivotVal = tleArray[pivot];
-        int iCounter =0;
+        int iCounter = 0;
         boolean swap = false;
 
-        for(int i: tleArray){
+        for (int i : tleArray) {
 
-            if(i>pivot){
+            if (i > pivot) {
                 //swap
-                tleArray[iCounter]= pivot;
-                tleArray[length-1] = i;
+                tleArray[iCounter] = pivot;
+                tleArray[length - 1] = i;
                 //quickSort(tleArray);
-            }else{
+            } else {
 
             }
             iCounter++;
         }
         long endTime = System.currentTimeMillis();
-        logger.info(" Took " + (endTime- startTime) + " ms with " + iCounter + " loops to do quick Sort - Array with length: " + length);
+        logger.info(" Took " + (endTime - startTime) + " ms with " + iCounter + " loops to do quick Sort - Array with length: " + length);
         logger.info("TLE Ascending using Java Quick Sort:: " + printArray(tleArray));
     }
 
@@ -182,40 +176,35 @@ public class SortAlgo {
      * low  --> Starting index,
      * high  --> Ending index
      */
-    private static void quickSort(int arr[], int low, int high)
-    {
-        if (low < high)
-        {
+    private static void quickSort(int arr[], int low, int high) {
+        if (low < high) {
          /* pi is partitioning index, arr[pi] is
            now at right place */
             int pi = partition(arr, low, high);
             //logger.info("PI: "+pi + " low:"+ low + " high:"+ high);
             // Recursively sort elements before
-            quickSort(arr, low, pi-1);
+            quickSort(arr, low, pi - 1);
 
             // partition and after partition
-            quickSort(arr, pi+1, high);
+            quickSort(arr, pi + 1, high);
         }
 
     }
 
     /**
-     *  This function takes last element as pivot,
-     *  places the pivot element at its correct
-     *  position in sorted array, and places all
-     *  smaller (smaller than pivot) to left of
-     *  pivot and all greater elements to right of pivot
+     * This function takes last element as pivot,
+     * places the pivot element at its correct
+     * position in sorted array, and places all
+     * smaller (smaller than pivot) to left of
+     * pivot and all greater elements to right of pivot
      */
-    private static int partition(int arr[], int low, int high)
-    {
+    private static int partition(int arr[], int low, int high) {
         int pivot = arr[high];
-        int i = (low-1); // index of smaller element
-        for (int j=low; j<high; j++)
-        {
+        int i = (low - 1); // index of smaller element
+        for (int j = low; j < high; j++) {
             // If current element is smaller than or
             // equal to pivot
-            if (arr[j] <= pivot)
-            {
+            if (arr[j] <= pivot) {
                 i++;
 
                 // swap arr[i] and arr[j]
@@ -226,21 +215,21 @@ public class SortAlgo {
         }
 
         // swap arr[i+1] and arr[high] (or pivot)
-        int temp = arr[i+1];
-        arr[i+1] = arr[high];
+        int temp = arr[i + 1];
+        arr[i + 1] = arr[high];
         arr[high] = temp;
 
-        return i+1;
+        return i + 1;
     }
 
     //PrintArray
     private static String printArray(int[] tleArray) {
         StringBuilder toPrint = new StringBuilder();
-        int iCounter=0;
-        for (int i: tleArray){
+        int iCounter = 0;
+        for (int i : tleArray) {
             toPrint.append(i);
             iCounter++;
-            if(iCounter != tleArray.length){
+            if (iCounter != tleArray.length) {
                 toPrint.append(",");
             }
         }
@@ -249,26 +238,32 @@ public class SortAlgo {
 
 
     //inner class
-    public class Pair{
+    public class Pair {
         int element = 0;
         int index = 0;
-        public Pair(int element, int index){
+
+        public Pair(int element, int index) {
             this.element = element;
             this.index = index;
 
         }
+
         public int getElement() {
             return element;
         }
+
         public void setElement(int element) {
             this.element = element;
         }
+
         public int getIndex() {
             return index;
         }
+
         public void setIndex(int index) {
             this.index = index;
         }
+
         @Override
         public String toString() {
             // TODO Auto-generated method stub

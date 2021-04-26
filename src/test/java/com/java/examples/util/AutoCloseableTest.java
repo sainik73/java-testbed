@@ -3,13 +3,12 @@ package com.java.examples.util;
 /**
  * Custom Java class implementing try-with-resources
  * Refer:: http://tutorials.jenkov.com/java-exception-handling/try-with-resources.html
- *
  */
-public class AutoCloseableTest  implements AutoCloseable{
+public class AutoCloseableTest implements AutoCloseable {
 
     private static void myAutoClosable() throws Exception {
         //try-with-resources
-        try(AutoCloseableTest myAutoClosable = new AutoCloseableTest()){
+        try (AutoCloseableTest myAutoClosable = new AutoCloseableTest()) {
             myAutoClosable.doIt();
         }
     }
