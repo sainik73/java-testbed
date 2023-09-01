@@ -1,6 +1,6 @@
 # Welcome to JavaTests
 
-This is Java 8 test project with working examples on new java features.
+This is Java 8/11 test project with working examples on new java features.
 1. DataStructure examples:
 
     Binary Tree, 
