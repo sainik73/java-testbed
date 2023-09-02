@@ -17,12 +17,12 @@ Running the tests
 
 Clone this repository:
 
-`git clone https://github.com/sainik73/hello-world`
+`git clone https://github.com/sainik73/java-testbed`
 
 Build the project with Maven:
 
 ```
-cd hello-world/
+cd java-testbed/
 mvn clean install -Pdist
 ```
 
