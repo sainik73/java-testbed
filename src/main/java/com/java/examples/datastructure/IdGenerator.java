@@ -14,8 +14,8 @@ public class IdGenerator {
             Instant.parse("2022-09-18T12:00:00.12Z").toEpochMilli();
     private static final int NODEIDBITS = 10;
     private static final int COUNTERBITS = 12;
-    private static Logger logger = Logger.getLogger(IdGenerator.class.getName());
-    private static boolean DEBUG_ON = true;
+    private static final Logger logger = Logger.getLogger(IdGenerator.class.getName());
+    private static final boolean DEBUG_ON = true;
 
     private static long getTimestamp() {
         long id = Instant.now().toEpochMilli() - CUSTOM_EPOCH;
