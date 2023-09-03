@@ -4,6 +4,15 @@ import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * Java Bitwise operators
+ * https://refreshjava.com/java/bitwise-operators
+ * << - Left shifts the bits of a by 2 position (negative number can become a positive number and vice-versa)
+ * >> - Signed Right shifts the bits of a by 2 position ( if last MSB is 0, it's a positive number and stays positive.
+ * Right shift the number by 2 zeros.
+ * if last MSB is 1, Right shift the number by 2 ones. it's a negative number and stays negative
+ * >>> - Right shifts the bits of a by 2 position (and places 0's in left side. It always returns a positive number.)
+ */
 public class TestBitwiseOperator {
 
     /**
@@ -55,5 +64,18 @@ public class TestBitwiseOperator {
 
         int minusNineteen = -19;
         assertEquals(-5, minusNineteen >> 2);
+    }
+
+    /**
+     * Java uses two's complement for negative numbers and the basic rule is to take the positive, invert all bits
+     * then add one. That gets you the negative.
+     */
+    @Test
+    public void testConvertPositiveNumberToNegativeEquivalent() {
+        int nineteen = 19;
+        int minusNineteen = -19;
+        int i = ~nineteen;//invert all digits
+        i = i + 1; //add 1
+        assertEquals(minusNineteen, i);
     }
 }
