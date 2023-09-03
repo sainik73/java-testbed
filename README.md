@@ -1,6 +1,6 @@
 # Welcome to JavaTests
 
-This is Java 8 test project with working examples on new java features.
+This is Java 8/11 test project with working examples on new java features.
 1. DataStructure examples:
 
     Binary Tree, 
@@ -17,12 +17,12 @@ Running the tests
 
 Clone this repository:
 
-`git clone https://github.com/sainik73/hello-world`
+`git clone https://github.com/sainik73/java-testbed`
 
 Build the project with Maven:
 
 ```
-cd hello-world/
+cd java-testbed/
 mvn clean install -Pdist
 ```
 
