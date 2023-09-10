@@ -17,7 +17,7 @@ public class InstructorConsumerExample {
         logger.log(Level.INFO, SPACER);
 
         //Loop through all the instructor and only print out their name
-        Consumer<Instructor> c2 = v -> logger.log(Level.INFO, "{0}", v.getName());
+        Consumer<Instructor> c2 = v -> logger.log(Level.INFO, "{0}", v.getFirstName());
         instructors.forEach(c2);
         logger.log(Level.INFO, SPACER);
 

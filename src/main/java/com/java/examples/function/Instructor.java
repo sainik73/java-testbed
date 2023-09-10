@@ -3,15 +3,24 @@ package com.java.examples.function;
 import java.util.List;
 
 public class Instructor {
-    String name;
+    String firstName;
+
+    String lastName;
     int yearsOfExperience;
     String title;
     String gender;
     boolean onlineCourses;
     List<String> courses;
 
-    public Instructor(String name, int yearsOfExperience, String title, String gender, boolean onlineCourses, List<String> courses) {
-        this.name = name;
+    //Default constructor
+    public Instructor() {
+    }
+
+    public Instructor(String firstName, String lastName, int yearsOfExperience, String title, String gender,
+                      boolean onlineCourses,
+                      List<String> courses) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.yearsOfExperience = yearsOfExperience;
         this.title = title;
         this.gender = gender;
@@ -23,7 +32,8 @@ public class Instructor {
     @Override
     public String toString() {
         return "Instructor{" +
-                "name='" + name + '\'' +
+                "first name='" + firstName + '\'' +
+                "last name='" + lastName + '\'' +
                 ", yearsOfExperience=" + yearsOfExperience +
                 ", title='" + title + '\'' +
                 ", gender='" + gender + '\'' +
@@ -32,12 +42,20 @@ public class Instructor {
                 '}';
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public int getYearsOfExperience() {

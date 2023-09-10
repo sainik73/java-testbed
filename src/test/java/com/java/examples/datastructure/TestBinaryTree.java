@@ -6,8 +6,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import static com.java.examples.datastructure.Node.nodeExists;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestBinaryTree {
     private static Logger logger = Logger.getLogger(TestBinaryTree.class.getName());
@@ -17,6 +17,11 @@ public class TestBinaryTree {
     @BeforeAll
     static void setup() {
         logger.log(Level.INFO, () -> "@BeforeAll executed");
+    }
+
+    @AfterAll
+    static void tear() {
+        logger.log(Level.INFO, () -> "@AfterAll executed");
     }
 
     @BeforeEach
@@ -89,11 +94,6 @@ public class TestBinaryTree {
     void tearThis() {
         bt = null;
         logger.log(Level.INFO, () -> "@AfterEach executed");
-    }
-
-    @AfterAll
-    static void tear() {
-        logger.log(Level.INFO, () -> "@AfterAll executed");
     }
 
 }

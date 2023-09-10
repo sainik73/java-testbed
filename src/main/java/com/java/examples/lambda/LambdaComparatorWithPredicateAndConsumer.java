@@ -2,7 +2,6 @@ package com.java.examples.lambda;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
@@ -25,7 +24,7 @@ public class LambdaComparatorWithPredicateAndConsumer {
 
         //Step 1: Sort the list by last name
         System.out.println("Sort the list by last name::");
-        Collections.sort(people, (p1, p2) -> p1.getLastName().compareTo(p2.getLastName()));
+        people.sort((p1, p2) -> p1.getLastName().compareTo(p2.getLastName()));
         System.out.println(people);
 
         //Step 2: print all elements in the list

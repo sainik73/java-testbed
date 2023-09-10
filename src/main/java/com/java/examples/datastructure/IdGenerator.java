@@ -20,6 +20,7 @@ public class IdGenerator {
     private static long getTimestamp() {
         long id = Instant.now().toEpochMilli() - CUSTOM_EPOCH;
         if (DEBUG_ON) logger.info("getTimestamp binary: " + Long.toBinaryString(id));
+        System.out.println("********************* getTimestamp binary: " + Long.toBinaryString(id));
         return id;
     }
 

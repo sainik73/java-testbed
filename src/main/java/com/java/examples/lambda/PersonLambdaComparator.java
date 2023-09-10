@@ -1,7 +1,6 @@
 package com.java.examples.lambda;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -18,7 +17,12 @@ public class PersonLambdaComparator {
 
         //Step 1: Sort the list by last name
         System.out.println("Sort the list by last name::");
-        Collections.sort(people, (p1, p2) -> p1.getLastName().compareTo(p2.getLastName()));
+        people.sort((p1, p2) -> p1.getLastName().compareTo(p2.getLastName()));
+        System.out.println(people);
+
+        // Sort by last name descending
+        System.out.println("Sort the list by last name descending::");
+        people.sort((p1, p2) -> p2.getLastName().compareTo(p1.getLastName()));
         System.out.println(people);
 
         //Step 2: print all elements in the list
@@ -52,6 +56,14 @@ public class PersonLambdaComparator {
         Predicate<Person> predicate = o -> o.getAge() < 40;
         people.stream().filter(predicate).forEach(System.out::println);
 
+        //print all persons for age descending
+        System.out.println("print all persons for age descending");
+        System.out.println("Original List:");
+        people.forEach((p) -> System.out.print(p.toString() + "[" + p.age + "] "));
+        System.out.println(" ");
+        people.sort((p1, p2) -> Integer.compare(p2.age, p1.age));
+        System.out.println(people);
+
     }
 
     /**
@@ -74,4 +86,3 @@ public class PersonLambdaComparator {
         boolean test(Person p);
     }
 }
-
