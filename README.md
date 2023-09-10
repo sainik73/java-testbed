@@ -1,5 +1,7 @@
 # Welcome to JavaTests
 
+![java-testbed Maven Build](https://github.com/sainik73/java-testbed/actions/workflows/maven.yml/badge.svg)
+
 This is Java 8/11 test project with working examples on new java features.
 1. DataStructure examples:
 
