@@ -27,7 +27,6 @@ public class TestMagicSquare {
         int fillCount = size * size;
         // magicSquare[row][col] = 1;
         for (int i = 1; i <= fillCount; i++) {
-            System.out.println("row: " + row + " : col: " + col);
             magicSquare[row][col] = i;
             //decrement and wrap row, if needed
             int nextRow = row - 1;
@@ -39,15 +38,12 @@ public class TestMagicSquare {
             if (nextCol >= size) {
                 nextCol = 0;
             }
-
             if (magicSquare[nextRow][nextCol] != 0) {
                 nextRow = row + 1;
                 nextCol = col;
             }
-
             row = nextRow;
             col = nextCol;
-
         }
         //print the magic square
         for (int[] rowP : magicSquare) {
